@@ -16,9 +16,19 @@ const Login = (props) => {
   */
   useEffect(() => {
 
-    setFormIsValid(
-      enteredEmail.includes('@') && enteredPassword.trim().length > 6
-    );
+    /* Every 2 seconds, check for valid email and password */
+    const identifier = setTimeout(() => {
+      console.log("Checking for validation");
+      setFormIsValid(
+        enteredEmail.includes('@') && enteredPassword.trim().length > 6
+      );
+    }, 2000);    
+
+    /* clear current timer, before starting a new one */
+    return () => {
+      console.log("CLEAN UP");
+      clearTimeout(identifier);
+    };
 
   }, [enteredEmail, enteredPassword]);
 
