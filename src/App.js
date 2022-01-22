@@ -40,6 +40,10 @@ function App() {
   };
 
   const logoutHandler = () => {
+
+    /* remove user credentials from local storage */
+    localStorage.removeItem('isLoggedIn');
+
     setIsLoggedIn(false);
   };
 
