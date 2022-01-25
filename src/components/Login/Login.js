@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useContext } from 'react';
+import React, { useState, useEffect, useReducer, useContext, useRef } from 'react';
 
 import Card from '../UI/Card/Card';
 import Input from '../UI/Input/Input';
@@ -88,6 +88,8 @@ const Login = (props) => {
 
   const context = useContext(AuthContext);
 
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
 
   useEffect(() => {
 
@@ -162,7 +164,18 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault(); // prevent default HTTP request
-    context.onLogin(emailState.value , passwordState.value); // pass the email/password to App.js
+    if(formIsValid){
+      context.onLogin(emailState.value , passwordState.value); // pass the email/password to App.js
+    }
+    else if(!emailIsValid )
+    {
+      emailInputRef.current.focus();
+    }
+    else
+    {
+      passwordInputRef.current.focus();
+    }
+
   };
 
   return (
@@ -170,32 +183,35 @@ const Login = (props) => {
       <form onSubmit={submitHandler}>
 
         <Input
-        isValid={emailIsValid}
-        id="email"
-        label="E-Mail"
-        type="email"
-        value={emailState.value}
-        onChange={emailChangeHandler}
-        onBlur={validateEmailHandler}
+          ref={emailInputRef}
+          isValid={emailIsValid}
+          id="email"
+          label="E-Mail"
+          type="email"
+          value={emailState.value}
+          onChange={emailChangeHandler}
+          onBlur={validateEmailHandler}
         />
 
         <Input
-        isValid={passwordIsValid}
-        id="password"
-        label="Password"
-        type="password"
-        value={passwordState.value}
-        onChange={passwordChangeHandler}
-        onBlur={validatePasswordHandler}
+          ref={passwordInputRef}
+          isValid={passwordIsValid}
+          id="password"
+          label="Password"
+          type="password"
+          value={passwordState.value}
+          onChange={passwordChangeHandler}
+          onBlur={validatePasswordHandler}
         />
+
         <div className={classes.actions}>
-          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
+          <Button type="submit" className={classes.btn}> 
             Login
           </Button>
         </div>
+
       </form>
     </Card>
   );
 };
-
 export default Login;

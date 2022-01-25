@@ -6,9 +6,7 @@ import MainHeader from './components/MainHeader/MainHeader';
 import AuthContext from './store/auth-context';
 
 function App() {
-
   const context = useContext(AuthContext);
-
 
   return (
     <React.Fragment>

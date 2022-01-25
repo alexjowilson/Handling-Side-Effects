@@ -9,7 +9,6 @@ const Home = (props) => {
 
   const context = useContext(AuthContext);
 
-
   return (
     <Card className={classes.home}>
       <h1>Welcome back!</h1>

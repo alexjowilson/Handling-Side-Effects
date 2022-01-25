@@ -6,14 +6,12 @@ const AuthContext = React.createContext({
     onLogin: (email, password) => {}
 });
 
-
 export const AuthContextProvider = (props) => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     /* This block of code runs after every component evaluation
         AND only if dependencies change 
-
         useEffect has 2 parameters, code of block to be run and array of dependencies
     */
     useEffect(() => {
@@ -28,15 +26,16 @@ export const AuthContextProvider = (props) => {
         }
     }, []);
 
+    /* function to handle when a user logs out */
     const logoutHandler = () => {
-
-        /* remove user credentials from local storage */
+        // remove user credentials from local storage 
         localStorage.removeItem('isLoggedIn');
         setIsLoggedIn(false);
     };
 
+    /* function to handle when a user logs in */
     const loginHandler = () => {
-        /* store user credentials into local storage */
+        // store user credentials into local storage 
         // 1 -> logged in, 0 -> not logged in
         localStorage.setItem('isLoggedIn', '1');
         setIsLoggedIn(true);
@@ -46,7 +45,4 @@ export const AuthContextProvider = (props) => {
             {props.children}
         </AuthContext.Provider>;
 }
-
-
-
 export default AuthContext;
