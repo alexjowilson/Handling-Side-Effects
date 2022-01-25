@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Handling-Side-Effects/static/css/main.c4102073.chunk.css",
+    "main.js": "/Handling-Side-Effects/static/js/main.c05fdb07.chunk.js",
+    "main.js.map": "/Handling-Side-Effects/static/js/main.c05fdb07.chunk.js.map",
+    "runtime-main.js": "/Handling-Side-Effects/static/js/runtime-main.4476f0a2.js",
+    "runtime-main.js.map": "/Handling-Side-Effects/static/js/runtime-main.4476f0a2.js.map",
+    "static/js/2.5989d96b.chunk.js": "/Handling-Side-Effects/static/js/2.5989d96b.chunk.js",
+    "static/js/2.5989d96b.chunk.js.map": "/Handling-Side-Effects/static/js/2.5989d96b.chunk.js.map",
+    "index.html": "/Handling-Side-Effects/index.html",
+    "static/css/main.c4102073.chunk.css.map": "/Handling-Side-Effects/static/css/main.c4102073.chunk.css.map",
+    "static/js/2.5989d96b.chunk.js.LICENSE.txt": "/Handling-Side-Effects/static/js/2.5989d96b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4476f0a2.js",
+    "static/js/2.5989d96b.chunk.js",
+    "static/css/main.c4102073.chunk.css",
+    "static/js/main.c05fdb07.chunk.js"
+  ]
+}
